@@ -40,7 +40,8 @@ In your F<dist.ini>:
 
 This plugin lets you specify extra parameters in your dist.ini under the
 [Extras] section. It does nothing. One use-case of this is to put stuffs to be
-processed by other software aside from Dist::Zilla.
+processed by other software aside from Dist::Zilla (e.g. see
+L<App::LintPrereqs>).
 
 
 =head1 SEE ALSO
