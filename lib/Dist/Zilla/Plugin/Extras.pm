@@ -1,10 +1,17 @@
 package Dist::Zilla::Plugin::Extras;
+
+# DATE
+# VERSION
+
 use Moose;
 with 'Dist::Zilla::Role::Plugin';
 
-# VERSION
-
 use namespace::autoclean;
+
+has params => (
+    is => 'ro',
+    default => sub { {} },
+);
 
 sub BUILDARGS {
     my ($class, @arg) = @_;
@@ -21,7 +28,7 @@ sub BUILDARGS {
 
 __PACKAGE__->meta->make_immutable;
 1;
-# ABSTRACT: Put and ignore extra parameters in dist.ini
+# ABSTRACT: Put extra parameters in dist.ini
 
 =head1 SYNOPSIS
 
@@ -38,10 +45,29 @@ In your F<dist.ini>:
 
 =head1 DESCRIPTION
 
-This plugin lets you specify extra parameters in your dist.ini under the
-[Extras] section. It does nothing. One use-case of this is to put stuffs to be
-processed by other software aside from Dist::Zilla (e.g. see
-L<App::LintPrereqs>).
+This plugin lets you specify extra parameters in your F<dist.ini> under the
+C<[Extras]> section. Other than that it does nothing. It basically serves as
+"bags" to put parameters in.
+
+One use-case of this is to put template variables in your F<dist.ini>, e.g.:
+
+ [Extras]
+ name1 = value1
+ name2 = value2
+
+The parameters are available for other plugins through C<$dzil> (Dist::Zilla
+object), e.g.:
+
+ my $extras_plugin = grep { $_->plugin_name eq 'Extras' } $dzil->plugins;
+ my $name1 = $extras_plugin->params->{name1}; # -> "value1"
+
+Another use-case of this is to put stuffs to be processed by other software
+aside from L<Dist::Zilla> (e.g. see L<App::LintPrereqs>).
+
+
+=head1 ATTRIBUTES
+
+=head2 params => hash
 
 
 =head1 SEE ALSO
