@@ -23,7 +23,8 @@ sub BUILDARGS {
     return {
         zilla => $zilla,
         plugin_name => $name,
-    }
+        params => \%copy,
+    };
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -55,10 +56,10 @@ One use-case of this is to put template variables in your F<dist.ini>, e.g.:
  name1 = value1
  name2 = value2
 
-The parameters are available for other plugins through C<$dzil> (Dist::Zilla
+The parameters are available for other plugins through C<$zilla> (Dist::Zilla
 object), e.g.:
 
- my $extras_plugin = grep { $_->plugin_name eq 'Extras' } $dzil->plugins;
+ my $extras_plugin = grep { $_->plugin_name eq 'Extras' } $zilla->plugins;
  my $name1 = $extras_plugin->params->{name1}; # -> "value1"
 
 Another use-case of this is to put stuffs to be processed by other software
