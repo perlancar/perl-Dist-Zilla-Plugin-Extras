@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-Plugin-Extras
 
+0.03    2015-06-14 (PERLANCAR)
+
+	- [Bugfix] Forgot to pass the params, d'oh.
+
+
 0.02     2015-06-14 (PERLANCAR)
 
          - Store parameters in 'params' (which is then accessible for other
