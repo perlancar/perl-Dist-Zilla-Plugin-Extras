@@ -59,7 +59,7 @@ One use-case of this is to put template variables in your F<dist.ini>, e.g.:
 The parameters are available for other plugins through C<$zilla> (Dist::Zilla
 object), e.g.:
 
- my $extras_plugin = grep { $_->plugin_name eq 'Extras' } $zilla->plugins;
+ my $extras_plugin = $zilla->plugin_named('Extras');
  my $name1 = $extras_plugin->params->{name1}; # -> "value1"
 
 Another use-case of this is to put stuffs to be processed by other software
