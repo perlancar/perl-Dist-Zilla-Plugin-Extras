@@ -1,14 +1,14 @@
-0.03    2015-06-14 (PERLANCAR)
+0.03    2015-06-14  Released-By: PERLANCAR
 
 	- [Bugfix] Forgot to pass the params, d'oh.
 
 
-0.02     2015-06-14 (PERLANCAR)
+0.02     2015-06-14  Released-By: PERLANCAR
 
          - Store parameters in 'params' (which is then accessible for other
            plugins) instead of discarding them. (Suggested by VDB, RT#105208]).
 
 
-0.01     2012-08-08 (SHARYANTO)
+0.01     2012-08-08  Released-By: SHARYANTO
 
          - First release.
